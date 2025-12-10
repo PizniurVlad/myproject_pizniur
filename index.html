@@ -3,106 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мінімальний Магазин</title>
+    <title>Удосконалений Craft Магазин (Єдиний файл)</title>
     
     <style>
-        /* Стилі CSS для мінімалістичного вигляду */
+        /* --- Основні Налаштування та Скидання --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Verdana', sans-serif;
             margin: 0;
-            background-color: #f9f9f9;
+            padding: 0;
+            background-color: #f8f8f8;
             color: #333;
-            text-align: center;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- Шапка та Навігація --- */
         header {
-            background-color: #008080; /* Темно-бірюзовий колір */
+            background-color: #4a7c59; /* Темно-зелений */
             color: white;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            margin: 0;
+        header h1 {
+            margin-bottom: 10px;
             font-size: 2.5em;
         }
 
-        main {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        h2 {
-            color: #008080;
+        header nav a:hover {
+            color: #ffc300; /* Жовтий акцент */
+        }
+
+        /* --- Вітальна Секція (Hero) --- */
+        .hero {
+            background: linear-gradient(135deg, #a8d5ba, #79b085);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e67e22; /* Помаранчевий */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+        }
+
+        /* --- Секція "Про Нас" --- */
+        #about {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+
+        /* --- Сітка Товарів --- */
+        h3 {
+            text-align: center;
+            color: #4a7c59;
+            font-size: 2em;
             margin-bottom: 30px;
         }
 
-        .product-list {
-            list-style: none;
-            padding: 0;
+        .product-grid {
+            display: grid;
+            /* Адаптивна сітка */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .product-item {
+        .product-card {
             background-color: white;
-            border: 1px solid #ddd;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-radius: 6px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-placeholder {
+            height: 180px;
+            background-color: #d4e8d9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a7c59;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .product-card h4 {
+            color: #333;
+            margin: 10px 0 5px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 0.9em;
+            padding: 0 15px;
+        }
+
+        .price-block {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .product-item strong {
-            font-size: 1.1em;
-            color: #005f5f;
+            padding: 10px 15px 0;
         }
 
         .price {
+            font-size: 1.5em;
+            color: #c0392b; /* Червоний для ціни */
             font-weight: bold;
-            color: #cc0000; /* Червоний для акценту на ціні */
         }
 
-        .contact-info {
+        .add-to-cart {
+            background-color: #4a7c59;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: #386145;
+        }
+
+        /* --- Футер --- */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
             margin-top: 50px;
-            padding: 20px;
-            border-top: 1px solid #ddd;
             font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🌟 Наш Інтернет-Магазин</h1>
+        <h1>💎 Craft Store UA</h1>
+        <nav>
+            <a href="#products">Товари</a>
+            <a href="#about">Про нас</a>
+            <a href="#contact">Контакти</a>
+        </nav>
     </header>
 
-    <main>
+    <section class="hero">
+        <h2>Створюємо затишок у вашому домі</h2>
+        <p>Унікальні речі ручної роботи з доставкою по Україні.</p>
+        <a href="#products" class="cta-button">Почати покупки</a>
+    </section>
+
+    <section id="about" class="container">
+        <h3>👋 Наша Філософія</h3>
+        <p>Ми віримо, що найкращі речі зроблені з душею. Усі наші вироби — це ручна робота від українських майстрів. Кожен товар — унікальний, екологічний та створений, щоб приносити радість.</p>
+    </section>
+
+    <main id="products" class="container">
+        <h3>Наші Найкращі Пропозиції</h3>
         
-        <h2>Товари та Ціни</h2>
+        <div class="product-grid">
 
-        <ul class="product-list">
-            <li class="product-item">
-                <span><strong>1. Еко-кружка</strong> (Для кави з собою)</span>
-                <span class="price">250 грн</span>
-            </li>
-            <li class="product-item">
-                <span><strong>2. Стильний блокнот A5</strong> (90 сторінок)</span>
-                <span class="price">180 грн</span>
-            </li>
-            <li class="product-item">
-                <span><strong>3. Набір стікерів</strong> (100 шт.)</span>
-                <span class="price">99 грн</span>
-            </li>
-        </ul>
+            <div class="product-card">
+                <div class="img-placeholder">Свічка Ручної Роботи</div>
+                <h4>Ароматична Свічка "Лаванда"</h4>
+                <p class="description">Натуральний віск, 50 годин горіння, спокійний аромат.</p>
+                <div class="price-block">
+                    <span class="price">390 грн</span>
+                    <button class="add-to-cart">Купити</button>
+                </div>
+            </div>
 
-        <div class="contact-info">
-            <p>Для замовлення телефонуйте: <strong>+38 (XXX) XXX-XX-XX</strong></p>
-            <p>Або пишіть на email: <strong>order@simple.com</strong></p>
+            <div class="product-card">
+                <div class="img-placeholder">Керамічна Чашка</div>
+                <h4>Ексклюзивна Керамічна Чашка</h4>
+                <p class="description">Унікальний дизайн, ручна ліпка, ідеальна для чаю.</p>
+                <div class="price-block">
+                    <span class="price">480 грн</span>
+                    <button class="add-to-cart">Купити</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-placeholder">Вовняний Плед</div>
+                <h4>Теплий Вовняний Плед</h4>
+                <p class="description">Великий (150x200 см), ідеальний для холодних вечорів.</p>
+                <div class="price-block">
+                    <span class="price">1250 грн</span>
+                    <button class="add-to-cart">Купити</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-placeholder">Набір для Вишивання</div>
+                <h4>Стартовий Набір "Квіти"</h4>
+                <p class="description">Все необхідне для створення першого шедевру.</p>
+                <div class="price-block">
+                    <span class="price">550 грн</span>
+                    <button class="add-to-cart">Купити</button>
+                </div>
+            </div>
+
         </div>
-        
     </main>
+
+    <footer id="contact">
+        <p>&copy; 2025 Craft Store UA. Зроблено з любов'ю.</p>
+        <p>Контакти: Телефон: +38 (050) XXX-XX-XX | Email: support@craft.ua</p>
+    </footer>
 
 </body>
 </html>

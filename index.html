@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мінімальний Магазин</title>
+    
+    <style>
+        /* Стилі CSS для мінімалістичного вигляду */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #008080; /* Темно-бірюзовий колір */
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #008080;
+            margin-bottom: 30px;
+        }
+
+        .product-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-item strong {
+            font-size: 1.1em;
+            color: #005f5f;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #cc0000; /* Червоний для акценту на ціні */
+        }
+
+        .contact-info {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌟 Наш Інтернет-Магазин</h1>
+    </header>
+
+    <main>
+        
+        <h2>Товари та Ціни</h2>
+
+        <ul class="product-list">
+            <li class="product-item">
+                <span><strong>1. Еко-кружка</strong> (Для кави з собою)</span>
+                <span class="price">250 грн</span>
+            </li>
+            <li class="product-item">
+                <span><strong>2. Стильний блокнот A5</strong> (90 сторінок)</span>
+                <span class="price">180 грн</span>
+            </li>
+            <li class="product-item">
+                <span><strong>3. Набір стікерів</strong> (100 шт.)</span>
+                <span class="price">99 грн</span>
+            </li>
+        </ul>
+
+        <div class="contact-info">
+            <p>Для замовлення телефонуйте: <strong>+38 (XXX) XXX-XX-XX</strong></p>
+            <p>Або пишіть на email: <strong>order@simple.com</strong></p>
+        </div>
+        
+    </main>
+
+</body>
+</html>
